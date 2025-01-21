@@ -1,0 +1,46 @@
+.input{
+    -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #000000 0.0%, #5e2222 39.5973%, #000000 100.0%);
+    -fx-background-color: transparent;
+    -fx-border-width: 0px 0px 0px 0px;
+}
+
+.input:focused{
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+.button {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #333;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0.5, 4, 4)dropshadow(gaussian, rgba(255,255,255,0.8), 10, 0.5, -4, -4);
+
+    -fx-border-color: transparent; /* No border initially */
+    -fx-cursor: hand; /* Pointer cursor */
+    -fx-transition: 0.3s; /* Smooth transition */
+}
+
+.button:hover {
+    /* Brighter inner shadows for a hover effect */
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,1), 10, 0.5, -2, -2),
+    dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.5, 2, 2);
+}
+
+.button:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0.5, -2, -2),
+    dropshadow(gaussian, rgba(255,255,255,0.7), 10, 0.5, 2, 2);
+}
+
+.welcome-message {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 100%, #5e2222, #000000);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.10), 10, 0.5, 0, 4);
+    -fx-alignment: center;
+    -fx-padding: 20px;
+}
+
