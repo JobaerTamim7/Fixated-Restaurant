@@ -1,9 +1,11 @@
-#loginButton {
-    -fx-background-color: tomato;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-border-color: darkred;
-    -fx-border-width: 2px;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
+.blurred-bg {
+    -fx-background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    -fx-effect: dropshadow(gaussian, rgba(248, 200, 200, 0.5), 10, 0, 0, 0); /* Blur effect */
+}
+
+
+.clear-text {
+    -fx-font-size: 24px;
+    -fx-text-fill: black;
+    -fx-effect: null; /* Ensure no effect is applied to the text */
 }
