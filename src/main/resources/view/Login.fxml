@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -40,7 +41,7 @@
                       <Font name="System Bold Italic" size="20.0" />
                   </font>
               </Label>
-            <HBox layoutX="111.0" layoutY="296.0" prefHeight="118.0" prefWidth="341.0">
+            <HBox layoutX="111.0" layoutY="300.0" prefHeight="114.0" prefWidth="341.0">
                <children>
                   <VBox prefHeight="118.0" prefWidth="41.0" spacing="40.0">
                      <children>
@@ -92,18 +93,21 @@
                           </FontAwesomeIconView>
                      </children>
                   </VBox>
-                  <VBox prefHeight="118.0" prefWidth="309.0" spacing="40.0">
+                  <VBox prefHeight="118.0" prefWidth="305.0" spacing="40.0">
                      <children>
                           <TextField fx:id="userNameField" alignment="CENTER" prefHeight="39.0" prefWidth="284.0" promptText="user name" styleClass="input" stylesheets="@../styles/Login.css">
                               <font>
                                   <Font size="13.0" />
                               </font>
                           </TextField>
-                          <PasswordField fx:id="passwordField" alignment="CENTER" prefHeight="39.0" prefWidth="254.0" promptText="password" styleClass="input" stylesheets="@../styles/Login.css" />
+                          <PasswordField fx:id="passwordField" alignment="CENTER" prefHeight="70.0" prefWidth="305.0" promptText="password" styleClass="input" stylesheets="@../styles/Login.css" />
                      </children>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </VBox>
                </children>
             </HBox>

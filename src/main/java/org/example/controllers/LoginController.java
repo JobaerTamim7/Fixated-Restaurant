@@ -1,16 +1,22 @@
 package org.example.controllers;
 
-import javafx.animation.ParallelTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
+import org.example.controllers.scene.SceneController;
+import org.example.controllers.scene.SceneName;
+import org.example.controllers.scene.SwitchSceneInterface;
+import org.example.models.user.CutomerUser;
+import org.example.models.user.User;
 import org.example.utils.Utility;
 import org.example.utils.AnimationFactory;
 import org.example.models.animation.AnimationInfo;
@@ -19,7 +25,7 @@ import org.example.services.LoginService;
 
 import java.io.IOException;
 
-public class LoginController {
+public class LoginController implements SwitchSceneInterface {
 
     @FXML
     private TextField userNameField;
@@ -28,16 +34,7 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    private Hyperlink forgotPassLink;
-
-    @FXML
-    private Button loginButton;
-
-    @FXML
     private Label alertLabel;
-
-    @FXML
-    private Hyperlink signUpLink;
 
     @FXML
     private AnchorPane rightSidePane;
@@ -45,39 +42,92 @@ public class LoginController {
     @FXML
     private VBox leftSideBox;
 
+    private Stage stage;
 
+    private SequentialTransition enterTransition;
+    private SequentialTransition leaveTransition;
+
+    private SequentialTransition createEnterTransition() {
+        TranslateTransition leftTransition = AnimationFactory.createTranslateTransition(
+                new AnimationInfo(leftSideBox, -leftSideBox.getWidth(), 0),
+                true
+        );
+        TranslateTransition rightTransition = AnimationFactory.createTranslateTransition(
+                new AnimationInfo(rightSidePane, -rightSidePane.getHeight(), 0),
+                false
+        );
+
+        return new SequentialTransition(leftTransition, rightTransition);
+    }
+
+    private SequentialTransition createLeaveTransition() {
+        TranslateTransition leftTransition = AnimationFactory.createTranslateTransition(
+                new AnimationInfo(leftSideBox, 0, -leftSideBox.getWidth()),
+                true
+        );
+        System.out.println(leftSideBox);
+        TranslateTransition rightTransition = AnimationFactory.createTranslateTransition(
+                new AnimationInfo(rightSidePane, 0, -rightSidePane.getHeight()),
+                false
+        );
+
+        return new SequentialTransition(leftTransition, rightTransition);
+    }
+
+    @Override
+    public void initialize(Stage stage) {
+        this.stage = stage;
+
+        this.enterTransition = createEnterTransition();
+        this.leaveTransition = createLeaveTransition();
+
+        Utility.animationPlay(enterTransition, leftSideBox, rightSidePane);
+    }
 
     @FXML
     public void onClickLoginButton(Event event) throws IOException, InterruptedException {
         String userName = userNameField.getText();
         String pass = passwordField.getText();
+
         try {
             if (userName.isEmpty() || pass.isEmpty()) {
-                throw new Exception("Mail or Password cannot be empty");
+                throw new Exception("Mail, Password cannot be empty");
             }
-            LoginService loginService = new LoginService();
-            LoginResponse response = loginService.login(userName, pass);
+
+            User user = new CutomerUser(userName, pass, "CUSTOMER");
+            LoginResponse response = LoginService.login(userName, pass, user);
+
             if (response.getStatusCode() == 200) {
-                Utility.changeScene("Signup.fxml", Utility.getCurrentScene(event));
+//                SceneController.switchScene(Utility.getStage((Node) event.getSource()), SceneName.LOGIN);
+                alertLabel.setTextFill(Paint.valueOf("green"));
+                alertLabel.setText(response.getMessage());
             }
-            alertLabel.setText(response.getMessage());
-        } catch (Exception e) {
-            alertLabel.setText(e.getMessage());
-        } finally {
-            userNameField.clear();
-            passwordField.clear();
+
+            else {
+                alertLabel.setTextFill(Paint.valueOf("red"));
+                alertLabel.setText(response.getMessage());
+            }
         }
+
+        catch (Exception e) {
+            alertLabel.setTextFill(Paint.valueOf("red"));
+            alertLabel.setText(e.getMessage());
+        }
+
     }
 
     @FXML
     public void onClickSignUpLink(Event event) throws IOException, InterruptedException {
-        TranslateTransition transition1 = AnimationFactory.runAnimation(
-                new AnimationInfo((Node) rightSidePane,rightSidePane.getTranslateY() , Utility.getCurrentScene(event).getHeight())
-                );
-        TranslateTransition transition =  Utility.horizontalSliderTransition(event,(Node) leftSideBox, 0,Utility.getCurrentScene(event).getWidth());
-        SequentialTransition sequentialTransition = new SequentialTransition(transition1, transition);
-        sequentialTransition.play();
+        Utility.animationPlay(leaveTransition, leftSideBox, rightSidePane);
+        leaveTransition.setOnFinished(actionEvent ->{
+            try {
+                SceneController.switchScene(Utility.getStage((Node) event.getSource()), SceneName.SIGNUP);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
-//        Utility.changeScene("Signup.fxml", Utility.getCurrentScene(event));
     }
+
+
 }
