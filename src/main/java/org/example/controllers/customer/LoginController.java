@@ -1,12 +1,10 @@
-package org.example.controllers;
+package org.example.controllers.customer;
 
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
-import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -95,10 +93,11 @@ public class LoginController implements SwitchSceneInterface {
             }
 
             User user = new CutomerUser(userName, pass, "CUSTOMER");
-            LoginResponse response = LoginService.login(userName, pass, user);
+            LoginResponse response = LoginService.login(user);
+
 
             if (response.getStatusCode() == 200) {
-//                SceneController.switchScene(Utility.getStage((Node) event.getSource()), SceneName.LOGIN);
+                SceneController.switchScene(this.stage, SceneName.LOGIN);
                 alertLabel.setTextFill(Paint.valueOf("green"));
                 alertLabel.setText(response.getMessage());
             }
@@ -110,6 +109,7 @@ public class LoginController implements SwitchSceneInterface {
         }
 
         catch (Exception e) {
+            e.printStackTrace();
             alertLabel.setTextFill(Paint.valueOf("red"));
             alertLabel.setText(e.getMessage());
         }

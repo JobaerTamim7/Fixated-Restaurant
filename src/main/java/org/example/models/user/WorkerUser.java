@@ -1,5 +1,8 @@
 package org.example.models.user;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+
 import java.util.HashMap;
 import java.util.Map;
 

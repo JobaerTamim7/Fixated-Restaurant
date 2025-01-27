@@ -1,6 +1,7 @@
 package org.example.models.responses;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.Instant;
@@ -46,5 +47,10 @@ public class LoginResponse {
         this.statusCode = statusCode;
         this.timeStamp = timeStamp;
         this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return "LoginResponse [statusCode=" + statusCode + ", timeStamp=" + timeStamp + ", message=" + message + "]";
     }
 }

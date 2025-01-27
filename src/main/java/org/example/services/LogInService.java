@@ -1,23 +1,22 @@
 package org.example.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.Endpoint;
 import org.example.models.responses.LoginResponse;
 import org.example.models.user.User;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.HashMap;
 import java.util.Map;
 
 public class LoginService {
 
-    public static LoginResponse login(String userName, String password, User user) throws IOException, InterruptedException {
-        String url = "http://localhost:8080/api/login";
+    public static LoginResponse login(User user) throws IOException, InterruptedException {
+        String url = Endpoint.LOGIN_URL.getUrl();
 
         Map<String, Object> payLoadMap = user.dataToMap();
         ObjectMapper mapper = CustomObjectMapper.createCustomMapper();

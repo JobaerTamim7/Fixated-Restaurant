@@ -17,7 +17,16 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException, InterruptedException {
         stage.setTitle("Fixated Kitchen");
-        SceneController.switchScene(stage, SceneName.LOGIN);
+
+        boolean isAdmin = System.getProperty("mode","").equals("admin");
+        System.out.println(System.getProperty("mode"));
+
+        if (isAdmin) {
+            SceneController.switchScene(stage,SceneName.ADMINLOGIN);
+        }
+        else {
+            SceneController.switchScene(stage, SceneName.LOGIN);
+        }
     }
 }
 

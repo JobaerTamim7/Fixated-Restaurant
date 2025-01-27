@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.admin.AdminController">
+    <children>
+        <ImageView fitHeight="700.0" fitWidth="957.0" style="-fx-opacity: 0.07;">
+            <image>
+                <Image url="@../images/manager.png"/>
+            </image>
+        </ImageView>
+        <Button fx:id="loginBtn" layoutX="381.0" layoutY="628.0" mnemonicParsing="false" onAction="#onClickLoginButton"
+                prefHeight="46.0" prefWidth="183.0" styleClass="button-primary" stylesheets="@../styles/Login.css"
+                text="Login"/>
+        <AnchorPane layoutX="276.0" layoutY="32.0" prefHeight="74.0" prefWidth="379.0">
+            <children>
+                <Label alignment="CENTER" layoutX="5.0" layoutY="3.0" prefHeight="46.0" prefWidth="374.0"
+                       styleClass="welcome-message" stylesheets="@../styles/Login.css" text="Executive Log in"
+                       textFill="#ab0000">
+                    <font>
+                        <Font name="System Bold" size="24.0"/>
+                    </font>
+                </Label>
+            </children>
+            <effect>
+                <InnerShadow choke="0.31" height="0.0" radius="10.6125" width="44.45">
+                    <color>
+                        <Color red="1.0"/>
+                    </color>
+                </InnerShadow>
+            </effect>
+        </AnchorPane>
+        <VBox alignment="CENTER_LEFT" layoutX="278.0" layoutY="112.0" prefHeight="501.0" prefWidth="374.0"
+              style="-fx-opacity: 1;">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="31.0">
+                    <children>
+                        <FontAwesomeIconView glyphName="USER" size="34">
+                            <fill>
+                                <RadialGradient centerX="0.212707182320442" centerY="0.1919431279620853" radius="0.5">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.006711409395973154">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.3567073170731707">
+                                            <color>
+                                                <Color red="0.658823549747467" green="0.18431372940540314"
+                                                       blue="0.18431372940540314"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color/>
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </RadialGradient>
+                            </fill>
+                        </FontAwesomeIconView>
+                        <TextField fx:id="userName" alignment="CENTER" prefHeight="39.0" prefWidth="318.0"
+                                   promptText="user name" styleClass="input" stylesheets="@../styles/Login.css">
+                            <effect>
+                                <DropShadow/>
+                            </effect>
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </TextField>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="34.0">
+                    <children>
+                        <FontAwesomeIconView glyphName="LOCK" size="34">
+                            <fill>
+                                <RadialGradient centerX="0.11878453038674035" centerY="0.31516587677725116"
+                                                radius="0.3045977011494253">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.006711409395973154">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.3567073170731707">
+                                            <color>
+                                                <Color red="0.658823549747467" green="0.18431372940540314"
+                                                       blue="0.18431372940540314"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color/>
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </RadialGradient>
+                            </fill>
+                        </FontAwesomeIconView>
+                        <PasswordField fx:id="password" alignment="CENTER" prefWidth="318.0" promptText="password"
+                                       styleClass="input" stylesheets="@../styles/Login.css"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="28.0">
+                    <children>
+                        <FontAwesomeIconView glyphName="PHONE" size="34">
+                            <fill>
+                                <RadialGradient centerX="0.10220994475138123" centerY="0.030805687203791454"
+                                                radius="0.5">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.006711409395973154">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.3567073170731707">
+                                            <color>
+                                                <Color red="0.658823549747467" green="0.18431372940540314"
+                                                       blue="0.18431372940540314"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color/>
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </RadialGradient>
+                            </fill>
+                        </FontAwesomeIconView>
+                        <TextField fx:id="phoneNo" alignment="CENTER" prefWidth="318.0" promptText="mobile number"
+                                   styleClass="input" stylesheets="@../styles/Login.css">
+                            <effect>
+                                <DropShadow/>
+                            </effect>
+                        </TextField>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0"
+                      spacing="17.0">
+                    <children>
+                        <FontAwesomeIconView glyphName="ID_CARD" size="32">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                            <fill>
+                                <RadialGradient centerY="0.4454976303317535" focusDistance="-0.3448275862068966"
+                                                radius="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.006711409395973154">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.3567073170731707">
+                                            <color>
+                                                <Color red="0.658823549747467" green="0.18431372940540314"
+                                                       blue="0.18431372940540314"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color/>
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </RadialGradient>
+                            </fill>
+                        </FontAwesomeIconView>
+                        <TextField fx:id="wrokerID" alignment="CENTER" prefHeight="39.0" prefWidth="318.0"
+                                   promptText="executive id" styleClass="input" stylesheets="@../styles/Login.css">
+                            <effect>
+                                <DropShadow/>
+                            </effect>
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </TextField>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                    <children>
+                        <FontAwesomeIconView glyphName="BUILDING" size="32">
+                            <fill>
+                                <RadialGradient centerY="0.4146919431279621" focusAngle="11.31"
+                                                focusDistance="-0.3908045977011494" radius="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.006711409395973154">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="0.3567073170731707">
+                                            <color>
+                                                <Color red="0.658823549747467" green="0.18431372940540314"
+                                                       blue="0.18431372940540314"/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color/>
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </RadialGradient>
+                            </fill>
+                        </FontAwesomeIconView>
+                        <TextField fx:id="branchCode" alignment="CENTER" prefHeight="39.0" prefWidth="318.0"
+                                   promptText="branch code" styleClass="input" stylesheets="@../styles/Login.css"/>
+                    </children>
+                </HBox>
+            </children>
+            <effect>
+                <DropShadow/>
+            </effect>
+        </VBox>
+    </children>
+</AnchorPane>

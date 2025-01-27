@@ -17,22 +17,22 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="950.0" styleClass="input" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.SignupController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" styleClass="input" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.customer.SignupController">
     <children>
-        <AnchorPane fx:id="leftSidePane" layoutX="587.0" prefHeight="700.0" prefWidth="365.0" style="-fx-background-color: black;" />
-        <AnchorPane fx:id="rightSidePane" prefHeight="700.0" prefWidth="587.0">
+        <AnchorPane fx:id="leftSidePane" layoutX="642.0" prefHeight="800.0" prefWidth="358.0" style="-fx-background-color: black;" />
+        <AnchorPane fx:id="rightSidePane" prefHeight="800.0" prefWidth="642.0">
             <children>
-                <ImageView fitHeight="157.0" fitWidth="218.0" layoutX="215.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="157.0" fitWidth="218.0" layoutX="239.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../images/restuarant-logo.png" />
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" layoutX="76.0" layoutY="157.0" prefHeight="75.0" prefWidth="447.0" styleClass="welcome-message" stylesheets="@../styles/Login.css" text="Start Your Journey With Kitchen !">
+                <Label alignment="CENTER" layoutX="94.0" layoutY="166.0" prefHeight="75.0" prefWidth="447.0" styleClass="welcome-message" stylesheets="@../styles/Login.css" text="Start Your Journey With Kitchen !">
                     <font>
                         <Font size="22.0" />
                     </font>
                 </Label>
-                <HBox layoutX="106.0" layoutY="232.0" prefHeight="294.0" prefWidth="339.0">
+                <HBox layoutX="130.0" layoutY="281.0" prefHeight="294.0" prefWidth="392.0">
                     <children>
                         <VBox alignment="TOP_CENTER" prefHeight="294.0" prefWidth="63.0" spacing="45.0">
                             <children>
@@ -120,7 +120,7 @@
                                         </RadialGradient>
                                     </fill>
                                 </FontAwesomeIconView>
-                                <FontAwesomeIconView glyphName="CHECK" size="34" text="">
+                                <FontAwesomeIconView fx:id="statusIcon" glyphName="CHECK" size="34" text="">
                                     <fill>
                                         <RadialGradient centerX="0.13535911602209943" centerY="0.21563981042654023" radius="0.5">
                                             <stops>
@@ -150,20 +150,25 @@
                                 </FontAwesomeIconView>
                             </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="279.0" prefWidth="262.0" spacing="39.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="294.0" prefWidth="331.0" spacing="39.0">
                             <children>
                                 <TextField fx:id="userName" alignment="CENTER" promptText="username" styleClass="input" stylesheets="@../styles/Login.css" />
                                 <TextField fx:id="mail" alignment="CENTER" promptText="mail" styleClass="input" stylesheets="@../styles/Login.css" />
                                 <PasswordField fx:id="password" alignment="CENTER" promptText="password" styleClass="input" stylesheets="@../styles/Login.css" />
                                 <PasswordField fx:id="rePassword" alignment="CENTER" promptText="confirm password" styleClass="input" stylesheets="@../styles/Login.css" />
                             </children>
-                     <effect>
-                        <DropShadow />
-                     </effect>
+                            <effect>
+                                <DropShadow />
+                            </effect>
                         </VBox>
                     </children>
                 </HBox>
-                <HBox alignment="CENTER" layoutX="171.0" layoutY="626.0" prefHeight="23.0" prefWidth="246.0">
+            <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="148.0" layoutY="599.0" prefHeight="17.0" prefWidth="339.0" style="-fx-font-weight: 700;" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+                <HBox alignment="CENTER" layoutX="195.0" layoutY="747.0" prefHeight="23.0" prefWidth="246.0">
                     <children>
                         <Label alignment="CENTER" prefHeight="20.0" prefWidth="144.0" style="-fx-font-weight: 700;" stylesheets="@../styles/Login.css" text="Already In? ">
                             <font>
@@ -177,7 +182,7 @@
                         </Hyperlink>
                     </children>
                 </HBox>
-                <Button fx:id="signUpBtn" layoutX="215.0" layoutY="553.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="157.0" styleClass="button-primary" stylesheets="@../styles/Login.css" text="Sign Up" />
+                <Button fx:id="signUpBtn" layoutX="239.0" layoutY="660.0" mnemonicParsing="false" onAction="#onSignUpButtonClicked" prefHeight="54.0" prefWidth="157.0" styleClass="button-primary" stylesheets="@../styles/Login.css" text="Sign Up" />
             </children>
         </AnchorPane>
     </children>
