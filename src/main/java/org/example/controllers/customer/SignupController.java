@@ -2,8 +2,12 @@ package org.example.controllers.customer;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import javafx.animation.SequentialTransition;
+import io.github.palexdev.materialfx.controls.MFXPasswordField;
+import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.animation.Interpolator;
+import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -25,18 +29,17 @@ import org.example.utils.Utility;
 
 
 import java.io.IOException;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+
 
 public class SignupController implements SwitchSceneInterface {
     @FXML
-    private TextField userName;
+    private MFXTextField userName;
     @FXML
-    private PasswordField password;
+    private MFXPasswordField password;
     @FXML
-    private TextField mail;
+    private MFXTextField mail;
     @FXML
-    private PasswordField rePassword;
+    private MFXPasswordField rePassword;
 
 
     @FXML
@@ -51,29 +54,29 @@ public class SignupController implements SwitchSceneInterface {
     FontAwesomeIconView statusIcon;
 
     private Stage stage;
-    private SequentialTransition leaveTransition;
-    private SequentialTransition enterTransition;
+    private ParallelTransition leaveTransition;
+    private ParallelTransition enterTransition;
 
 
-    private SequentialTransition createLeaveTransition() {
+    private ParallelTransition createLeaveTransition() {
         TranslateTransition leftTransition = AnimationFactory.createTranslateTransition(
-                new AnimationInfo(leftSidePane,0 ,-leftSidePane.getHeight()),false
+                new AnimationInfo(leftSidePane,0 ,-leftSidePane.getHeight()-10),false
         );
         TranslateTransition rightTransition = AnimationFactory.createTranslateTransition(
                 new AnimationInfo(rightSidePane,0,-rightSidePane.getWidth()),true
         );
 
-        return new SequentialTransition(leftTransition, rightTransition);
+        return new ParallelTransition(leftTransition, rightTransition);
     }
 
-    private SequentialTransition createEnterTransition() {
+    private ParallelTransition createEnterTransition() {
         TranslateTransition leftTransition = AnimationFactory.createTranslateTransition(
-                new AnimationInfo((Node) leftSidePane,-leftSidePane.getHeight(),0),false
+                new AnimationInfo((Node) leftSidePane,-leftSidePane.getHeight()-10,0),false
         );
         TranslateTransition rightTransition = AnimationFactory.createTranslateTransition(
                 new AnimationInfo((Node) rightSidePane,-rightSidePane.getWidth(),0),true
         );
-        return new SequentialTransition(leftTransition, rightTransition);
+        return new ParallelTransition(leftTransition, rightTransition);
     }
 
 
@@ -81,10 +84,15 @@ public class SignupController implements SwitchSceneInterface {
     public void initialize(Stage stage) {
         this.stage = stage;
 
-        this.enterTransition = createEnterTransition();
-        this.leaveTransition = createLeaveTransition();
+        Platform.runLater(() -> {
+            this.enterTransition = createEnterTransition();
+            this.enterTransition.setInterpolator(Interpolator.EASE_BOTH);
+            this.leaveTransition = createLeaveTransition();
+            this.leaveTransition.setInterpolator(Interpolator.EASE_BOTH);
 
-        Utility.animationPlay(enterTransition,leftSidePane,rightSidePane);
+            Utility.animationPlay(enterTransition,leftSidePane,rightSidePane);
+        });
+
     }
 
 

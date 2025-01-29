@@ -18,13 +18,4 @@ public class AnimationFactory {
         return transition;
     }
 
-    public static ParallelTransition runParallelAnimation(AnimationInfo... animations) {
-        ParallelTransition parallelTransition = new ParallelTransition();
-        for (AnimationInfo animation : animations) {
-            TranslateTransition transition = Utility.verticalSliderTransition(animation.getNode(),animation.getFrom(),animation.getTo(),animation.getDuration());
-            transition.setInterpolator(Interpolator.EASE_IN);
-            parallelTransition.getChildren().add(transition);
-        }
-        return parallelTransition;
-    }
 }

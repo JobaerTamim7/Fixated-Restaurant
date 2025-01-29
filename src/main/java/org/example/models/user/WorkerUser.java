@@ -1,5 +1,6 @@
 package org.example.models.user;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 
@@ -20,26 +21,32 @@ public class WorkerUser extends User {
         this.workerID = workerID;
     }
 
+    @JsonProperty("phone_number")
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    @JsonProperty("phone_number")
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
+    @JsonProperty("worker_id")
     public String getWorkerID() {
         return workerID;
     }
 
+    @JsonProperty("worker_id")
     public void setWorkerID(String workerID) {
         this.workerID = workerID;
     }
 
+    @JsonProperty("branch_code")
     public String getBranchCode() {
         return branchCode;
     }
 
+    @JsonProperty("branch_code")
     public void setBranchCode(String branchCode) {
         this.branchCode = branchCode;
     }

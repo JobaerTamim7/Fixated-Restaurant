@@ -1,14 +1,10 @@
 .input{
     -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #000000 0.0%, #5e2222 39.5973%, #000000 100.0%);
-    -fx-border-width: 0px 10px 0px 0px;
+    /*-fx-border-width: 0px 4px 0px 0px;*/
     -fx-effect: dropshadow(gaussian, rgb(101, 101, 101), 10, 0, 0, 0);
-    -fx-background-color: rgba(255, 255, 255, 0.07); /* Semi-transparent background */
-    -fx-font-size: 18px;
-    -fx-prompt-text-fill: #ffffff;
-}
-
-.input:focused{
-    -fx-border-width: 0px 10px 2px 0px;
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+    -fx-font-size: 13px;
+    -fx-prompt-text-fill: white;
 }
 
 .button-primary {
@@ -46,4 +42,6 @@
     -fx-alignment: center;
     -fx-padding: 20px;
 }
+
+
 

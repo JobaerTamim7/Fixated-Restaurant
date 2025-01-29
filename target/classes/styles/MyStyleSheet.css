@@ -1,49 +1,28 @@
-/* styles.css */
+.admin-login-button {
+    -fx-background-color: linear-gradient(to bottom, #7ac3e6, #4a91d4); /* Gradient blue */
+    -fx-text-fill: #ffffff; /* White text for contrast */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
 
-/* Style the ChoiceBox itself */
-.choice-box {
-    -fx-background-color: #f4f4f4; /* Background color */
-    -fx-border-color: #cccccc; /* Border color */
-    -fx-border-radius: 5px; /* Rounded corners */
-    -fx-padding: 5px; /* Padding */
+    -fx-effect: drop shadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.6, 4, 4),
+    drop shadow(gaussian, rgba(255, 255, 255, 0.7), 8, 0.6, -4, -4);
+
+    -fx-border-color: transparent; /* No border initially */
+    -fx-cursor: hand; /* Pointer cursor */
+    -fx-transition: 0.3s; /* Smooth transition */
 }
 
-/* Style the label inside the ChoiceBox */
-.choice-box .label {
-    -fx-text-fill: #333333; /* Text color */
-    -fx-font-size: 14px; /* Font size */
-    -fx-font-family: "Arial"; /* Font family */
+.admin-login-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #65b0d8, #3f7fb6); /* Darker gradient on hover */
+    -fx-effect: drop shadow(gaussian, rgba(255, 255, 255, 0.9), 8, 0.6, -2, -2),
+    drop shadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.6, 2, 2);
 }
 
-/* Style the arrow button (dropdown button) */
-.choice-box .arrow-button {
-    -fx-background-color: #e0e0e0; /* Background color */
-    -fx-background-radius: 0 5px 5px 0; /* Rounded corners on the right side */
-}
-
-/* Style the arrow inside the arrow button */
-.choice-box .arrow {
-    -fx-background-color: #666666; /* Arrow color */
-}
-
-/* Style the popup menu (dropdown list) */
-.choice-box .context-menu {
-    -fx-background-color: #f4f4f4; /* Background color */
-    -fx-border-color: #cccccc; /* Border color */
-}
-
-/* Style the items in the popup menu */
-.choice-box .menu-item {
-    -fx-background-color: #f4f4f4; /* Background color */
-    -fx-padding: 5px; /* Padding */
-}
-
-/* Style the items in the popup menu when hovered */
-.choice-box .menu-item:hover {
-    -fx-background-color: #e0e0e0; /* Hover background color */
-}
-
-/* Style the items in the popup menu when selected */
-.choice-box .menu-item:selected {
-    -fx-background-color: #cccccc; /* Selected background color */
+.admin-login-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #5ea7cc, #3a77a4); /* Even darker gradient when pressed */
+    -fx-effect: drop shadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.6, -2, -2),
+    drop shadow(gaussian, rgba(255, 255, 255, 0.6), 8, 0.6, 2, 2);
 }

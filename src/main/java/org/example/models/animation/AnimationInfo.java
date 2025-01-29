@@ -13,7 +13,7 @@ public class AnimationInfo {
         this.node = node;
         this.from = from;
         this.to = to;
-        this.duration = 1000;
+        this.duration = 1500;
     }
 
     public AnimationInfo(Node node, double from, double to, double duration) {

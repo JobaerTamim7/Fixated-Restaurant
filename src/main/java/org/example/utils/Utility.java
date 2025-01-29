@@ -1,8 +1,10 @@
 package org.example.utils;
 
 import javafx.animation.Interpolator;
+import javafx.animation.ParallelTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,6 +15,8 @@ import javafx.util.FXPermission;
 import org.example.controllers.scene.SceneName;
 
 import java.io.IOException;
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
 
 public class Utility {
 //------------------------------------------------    scene section    -----------------------------------------------//
@@ -61,14 +65,8 @@ public class Utility {
         return transition;
     }
 
-    public static void animationPlay(SequentialTransition transition, Node... nodes) {
-        for (Node node : nodes) {
-            node.setVisible(false);
-        }
+    public static void animationPlay(ParallelTransition transition, Node... nodes) {
         transition.play();
-        for (Node node : nodes) {
-            node.setVisible(true);
-        }
-
     }
+
 }

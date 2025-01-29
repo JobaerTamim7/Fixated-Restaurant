@@ -19,10 +19,13 @@ public class Main extends Application {
         stage.setTitle("Fixated Kitchen");
 
         boolean isAdmin = System.getProperty("mode","").equals("admin");
-        System.out.println(System.getProperty("mode"));
+        boolean isManager = System.getProperty("mode","").equals("manager");
 
         if (isAdmin) {
-            SceneController.switchScene(stage,SceneName.ADMINLOGIN);
+            SceneController.switchScene(stage,SceneName.ADMIN_LOGIN);
+        }
+        else if (isManager) {
+            SceneController.switchScene(stage,SceneName.MANAGER_LOGIN);
         }
         else {
             SceneController.switchScene(stage, SceneName.LOGIN);

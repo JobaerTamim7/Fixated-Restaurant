@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.geometry.Insets?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -41,11 +39,11 @@
                         <Font name="System Bold Italic" size="20.0" />
                     </font>
                 </Label>
-                <HBox layoutX="113.0" layoutY="342.0" prefHeight="114.0" prefWidth="341.0">
-                    <children>
-                        <VBox prefHeight="118.0" prefWidth="41.0" spacing="40.0">
-                            <children>
-                                <FontAwesomeIconView glyphName="USER" size="34">
+            <VBox alignment="TOP_CENTER" layoutX="93.0" layoutY="325.0" prefHeight="153.0" prefWidth="383.0">
+               <children>
+                      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                          <children>
+                                <FontAwesomeIconView glyphName="USER" size="34" wrappingWidth="30.0">
                                     <fill>
                                         <RadialGradient centerX="0.212707182320442" centerY="0.1919431279620853" radius="0.5">
                                             <stops>
@@ -73,7 +71,16 @@
                                         </RadialGradient>
                                     </fill>
                                 </FontAwesomeIconView>
-                                <FontAwesomeIconView glyphName="LOCK" size="34">
+                        <MFXTextField fx:id="userNameField" alignment="CENTER" floatMode="BORDER" prefHeight="40.0" prefWidth="310.0" promptText="user name" styleClass="input" stylesheets="@../styles/Login.css">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </MFXTextField>
+                          </children>
+                      </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                                <FontAwesomeIconView glyphName="LOCK" size="34" wrappingWidth="30.0">
                                     <fill>
                                         <RadialGradient centerX="0.11878453038674035" centerY="0.31516587677725116" radius="0.3045977011494253">
                                             <stops>
@@ -101,29 +108,17 @@
                                         </RadialGradient>
                                     </fill>
                                 </FontAwesomeIconView>
-                            </children>
-                        </VBox>
-                        <VBox prefHeight="118.0" prefWidth="305.0" spacing="40.0">
-                            <children>
-                                <TextField fx:id="userNameField" alignment="CENTER" prefHeight="39.0" prefWidth="284.0" promptText="user name" styleClass="input" stylesheets="@../styles/Login.css">
-                                    <font>
-                                        <Font size="13.0" />
-                                    </font>
-                                </TextField>
-                                <PasswordField fx:id="passwordField" alignment="CENTER" prefHeight="70.0" prefWidth="305.0" promptText="password" styleClass="input" stylesheets="@../styles/Login.css" />
-                            </children>
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                            <effect>
-                                <DropShadow />
-                            </effect>
-                        </VBox>
-                    </children>
-                </HBox>
+                        <MFXPasswordField fx:id="passwordField" alignment="CENTER" borderGap="5.0" floatMode="BORDER" prefHeight="40.0" prefWidth="310.0" promptText="password" styleClass="input" stylesheets="@../styles/Login.css" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
                 <Hyperlink fx:id="forgotPassLink" alignment="CENTER" layoutX="299.0" layoutY="496.0" prefHeight="23.0" prefWidth="200.0" text="Forgot Password?" />
                 <Button fx:id="loginButton" layoutX="219.0" layoutY="554.0" mnemonicParsing="false" onAction="#onClickLoginButton" prefHeight="48.0" prefWidth="130.0" styleClass="button-primary" stylesheets="@../styles/Login.css" text="Login" />
-                <Label fx:id="alertLabel" alignment="CENTER" layoutX="82.0" layoutY="650.0" prefHeight="17.0" prefWidth="405.0" style="-fx-font-weight: 800;" textFill="RED" />
+                <Label fx:id="alertLabel" alignment="CENTER" layoutX="82.0" layoutY="633.0" prefHeight="34.0" prefWidth="405.0" style="-fx-font-weight: 800;" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
                 <HBox alignment="CENTER" layoutX="81.0" layoutY="674.0" prefHeight="66.0" prefWidth="405.0">
                     <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="172.0" text="New Explorer?">

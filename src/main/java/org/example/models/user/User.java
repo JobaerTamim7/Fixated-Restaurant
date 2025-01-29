@@ -19,34 +19,43 @@ public abstract class User {
 
     public abstract Map<String, Object> dataToMap();
 
+    @JsonProperty("user_name")
     public String getUser_name() {
         return user_name;
     }
 
+    @JsonProperty("user_name")
     public void setUser_name(String user_name) {
         this.user_name = user_name;
     }
 
+
+    @JsonProperty("password")
     public String getPassword() {
         return password;
     }
 
+    @JsonProperty("password")
     public void setPassword(String password) {
         this.password = password;
     }
 
+    @JsonProperty("role")
     public String getRole() {
         return role;
     }
 
+    @JsonProperty("role")
     public void setRole(String role) {
         this.role = role;
     }
 
+    @JsonProperty("mail")
     public String getMail() {
         return mail;
     }
 
+    @JsonProperty("mail")
     public void setMail(String mail) {
         this.mail = mail;
     }

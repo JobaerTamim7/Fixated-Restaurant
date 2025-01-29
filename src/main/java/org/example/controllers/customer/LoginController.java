@@ -1,7 +1,12 @@
 package org.example.controllers.customer;
 
-import javafx.animation.SequentialTransition;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import io.github.palexdev.materialfx.controls.MFXPasswordField;
+import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.animation.Interpolator;
+import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -26,10 +31,10 @@ import java.io.IOException;
 public class LoginController implements SwitchSceneInterface {
 
     @FXML
-    private TextField userNameField;
+    private MFXTextField userNameField;
 
     @FXML
-    private PasswordField passwordField;
+    private MFXPasswordField passwordField;
 
     @FXML
     private Label alertLabel;
@@ -42,10 +47,10 @@ public class LoginController implements SwitchSceneInterface {
 
     private Stage stage;
 
-    private SequentialTransition enterTransition;
-    private SequentialTransition leaveTransition;
+    private ParallelTransition enterTransition;
+    private ParallelTransition leaveTransition;
 
-    private SequentialTransition createEnterTransition() {
+    private ParallelTransition createEnterTransition() {
         TranslateTransition leftTransition = AnimationFactory.createTranslateTransition(
                 new AnimationInfo(leftSideBox, -leftSideBox.getWidth(), 0),
                 true
@@ -55,31 +60,37 @@ public class LoginController implements SwitchSceneInterface {
                 false
         );
 
-        return new SequentialTransition(leftTransition, rightTransition);
+        return new ParallelTransition(leftTransition, rightTransition);
     }
 
-    private SequentialTransition createLeaveTransition() {
+    private ParallelTransition createLeaveTransition() {
         TranslateTransition leftTransition = AnimationFactory.createTranslateTransition(
                 new AnimationInfo(leftSideBox, 0, -leftSideBox.getWidth()),
                 true
         );
-        System.out.println(leftSideBox);
+
         TranslateTransition rightTransition = AnimationFactory.createTranslateTransition(
                 new AnimationInfo(rightSidePane, 0, -rightSidePane.getHeight()),
                 false
         );
 
-        return new SequentialTransition(leftTransition, rightTransition);
+        return new ParallelTransition(leftTransition, rightTransition);
     }
+
 
     @Override
     public void initialize(Stage stage) {
         this.stage = stage;
 
-        this.enterTransition = createEnterTransition();
-        this.leaveTransition = createLeaveTransition();
+        Platform.runLater(() -> {
+            this.enterTransition = createEnterTransition();
+            this.enterTransition.setInterpolator(Interpolator.EASE_BOTH);
+            this.leaveTransition = createLeaveTransition();
+            this.leaveTransition.setInterpolator(Interpolator.EASE_BOTH);
 
-        Utility.animationPlay(enterTransition, leftSideBox, rightSidePane);
+            Utility.animationPlay(enterTransition, leftSideBox, rightSidePane);
+        });
+
     }
 
     @FXML
@@ -109,7 +120,6 @@ public class LoginController implements SwitchSceneInterface {
         }
 
         catch (Exception e) {
-            e.printStackTrace();
             alertLabel.setTextFill(Paint.valueOf("red"));
             alertLabel.setText(e.getMessage());
         }
@@ -128,6 +138,4 @@ public class LoginController implements SwitchSceneInterface {
         });
 
     }
-
-
 }
