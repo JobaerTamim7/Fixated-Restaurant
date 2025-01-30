@@ -113,9 +113,8 @@
                   </HBox>
                </children>
             </VBox>
-                <Hyperlink fx:id="forgotPassLink" alignment="CENTER" layoutX="299.0" layoutY="496.0" prefHeight="23.0" prefWidth="200.0" text="Forgot Password?" />
-                <Button fx:id="loginButton" layoutX="219.0" layoutY="554.0" mnemonicParsing="false" onAction="#onClickLoginButton" prefHeight="48.0" prefWidth="130.0" styleClass="button-primary" stylesheets="@../styles/Login.css" text="Login" />
-                <Label fx:id="alertLabel" alignment="CENTER" layoutX="82.0" layoutY="633.0" prefHeight="34.0" prefWidth="405.0" style="-fx-font-weight: 800;" textFill="RED">
+                <Button fx:id="loginButton" layoutX="220.0" layoutY="528.0" mnemonicParsing="false" onAction="#onClickLoginButton" prefHeight="48.0" prefWidth="130.0" styleClass="button-primary" stylesheets="@../styles/Login.css" text="Login" />
+                <Label fx:id="alertLabel" alignment="CENTER" layoutX="82.0" layoutY="631.0" prefHeight="34.0" prefWidth="405.0" style="-fx-font-weight: 800;" textFill="RED">
                <font>
                   <Font size="14.0" />
                </font></Label>

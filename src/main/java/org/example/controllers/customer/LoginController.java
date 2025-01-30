@@ -108,7 +108,7 @@ public class LoginController implements SwitchSceneInterface {
 
 
             if (response.getStatusCode() == 200) {
-                SceneController.switchScene(this.stage, SceneName.LOGIN);
+                SceneController.switchScene(this.stage, SceneName.MENU);
                 alertLabel.setTextFill(Paint.valueOf("green"));
                 alertLabel.setText(response.getMessage());
             }
@@ -122,6 +122,7 @@ public class LoginController implements SwitchSceneInterface {
         catch (Exception e) {
             alertLabel.setTextFill(Paint.valueOf("red"));
             alertLabel.setText(e.getMessage());
+            e.printStackTrace();
         }
 
     }

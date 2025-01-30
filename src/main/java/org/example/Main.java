@@ -1,5 +1,6 @@
 package org.example;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.example.controllers.scene.SceneController;

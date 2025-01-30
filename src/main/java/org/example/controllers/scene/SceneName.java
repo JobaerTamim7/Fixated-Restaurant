@@ -9,7 +9,9 @@ public enum SceneName {
     ADMIN_ADD_USER("/view/Adduser.fxml"),
     ADMIN_ALL_USERS("/view/Allusers.fxml"),
     MANAGER_LOGIN("/view/Managerlogin.fxml"),
-    MANAGER_COMPLETE_PROFILE("/view/Managercomplete.fxml"),;
+    MANAGER_COMPLETE_PROFILE("/view/Managercomplete.fxml"),
+    MENU("/view/Menu.fxml"),
+    CART("/view/Cart.fxml"),;
 
     private final String fxmlFile;
 

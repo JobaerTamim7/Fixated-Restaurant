@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="910.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.menu.MenuController">
+    <center>
+        <AnchorPane prefHeight="763.0" prefWidth="620.0" BorderPane.alignment="CENTER">
+            <children>
+                <ScrollPane prefHeight="805.0" prefWidth="1057.0">
+                    <content>
+                        <GridPane fx:id="menuGrid" prefHeight="797.0" prefWidth="1054.0" style="-fx-background-color: #F0F4FF;">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                <AnchorPane prefHeight="256.0" prefWidth="371.0" GridPane.columnIndex="1" />
+                                <AnchorPane prefHeight="265.0" prefWidth="313.0" GridPane.rowIndex="1" />
+                                <AnchorPane prefHeight="183.0" prefWidth="211.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            </children>
+                        </GridPane>
+                    </content>
+                </ScrollPane>
+            </children>
+        </AnchorPane>
+    </center>
+    <top>
+        <AnchorPane prefHeight="53.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="102.0" fitWidth="121.0" layoutX="398.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/restuarant-logo.png" />
+                    </image>
+                </ImageView>
+                <Label alignment="CENTER" layoutX="490.0" layoutY="1.0" prefHeight="98.0" prefWidth="193.0" style="-fx-font-size: 40;" styleClass="welcome-message" stylesheets="@../styles/Login.css" text="Kitchen">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <HBox alignment="CENTER" layoutX="14.0" layoutY="17.0" prefHeight="66.0" prefWidth="207.0" spacing="21.0" style="-fx-background-radius: 30px; -fx-border-radius: 30px;">
+                    <children>
+                        <FontAwesomeIconView fill="WHITE" glyphName="SHOPPING_CART" size="40" text="" wrappingWidth="53.14285755157471" />
+                        <MFXButton onAction="#handleCartNavigation" prefHeight="35.0" prefWidth="101.0" text="Cart" textFill="#390505">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </MFXButton>
+                    </children>
+                </HBox>
+                <MFXButton layoutX="886.0" layoutY="26.0" onAction="#exit" prefHeight="34.0" prefWidth="126.0" text="Sign out">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="SIGN_OUT" size="40" wrappingWidth="42.14285755157471" />
+                    </graphic>
+                </MFXButton>
+            </children>
+            <BorderPane.margin>
+                <Insets left="20.0" />
+            </BorderPane.margin>
+            <effect>
+                <DropShadow />
+            </effect>
+        </AnchorPane>
+    </top>
+</BorderPane>

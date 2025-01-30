@@ -18,7 +18,14 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1000.0" styleClass="input" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.customer.SignupController">
     <children>
-        <AnchorPane fx:id="leftSidePane" layoutX="642.0" prefHeight="800.0" prefWidth="358.0" style="-fx-background-color: black;" />
+        <AnchorPane fx:id="leftSidePane" layoutX="578.0" prefHeight="803.0" prefWidth="494.0" style="-fx-background-color: aliceblue;">
+         <children>
+            <ImageView fitHeight="811.0" fitWidth="501.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/resturant-final.jpg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
         <AnchorPane fx:id="rightSidePane" prefHeight="800.0" prefWidth="642.0">
             <children>
                 <ImageView fitHeight="157.0" fitWidth="218.0" layoutX="239.0" pickOnBounds="true" preserveRatio="true">

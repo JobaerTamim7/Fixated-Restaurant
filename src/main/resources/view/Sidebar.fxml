@@ -13,10 +13,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="900.0" prefWidth="307.0" spacing="20.0"
-      style="-fx-background-color: #2a2a2a; -fx-border-color: transparent;" BorderPane.alignment="CENTER"
-      xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="org.example.controllers.admin.SidebarController">
+<VBox prefHeight="900.0" prefWidth="307.0" spacing="20.0" style="-fx-background-color: #2a2a2a; -fx-border-color: transparent;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.admin.SidebarController">
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="171.0" prefWidth="265.0" spacing="10.0">
             <padding>
@@ -74,16 +71,7 @@
                         </Button>
                     </children>
                 </HBox>
-                <HBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="270.0" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
-                    <children>
-                        <FontAwesomeIconView fill="WHITE" glyphName="FILE" size="30" stroke="#111111" wrappingWidth="35.0" />
-                        <Button fx:id="reportBtn" alignment="TOP_LEFT" graphicTextGap="28.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="288.0" style="-fx-background-color: transparent;" text="Reports" textFill="WHITE">
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </Button>
-                    </children>
-                </HBox>
+                <HBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="270.0" prefHeight="100.0" prefWidth="200.0" spacing="30.0" />
             </children>
             <padding>
                 <Insets left="21.0" />
