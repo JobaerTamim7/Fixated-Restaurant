@@ -13,7 +13,7 @@ module fooddelivery {
 
     requires java.net.http;
 
-    opens org.example.models.food to javafx.base;
+    opens org.example.models.food to javafx.base, com.fasterxml.jackson.databind;
     opens org.example to javafx.fxml, com.fasterxml.jackson.databind;
     opens org.example.controllers.admin to javafx.fxml;
     opens org.example.controllers.manager to javafx.fxml;
@@ -24,6 +24,7 @@ module fooddelivery {
     opens org.example.utils to javafx.fxml;
     opens org.example.controllers.scene to javafx.fxml;
     opens org.example.models.user to com.fasterxml.jackson.databind;
+
 
     exports org.example.controllers.menu;
     exports org.example to javafx.graphics;

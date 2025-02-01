@@ -6,7 +6,8 @@ public enum Endpoint {
     SIGNUP_URL(BASE_URL.url + "/signup"),
     ADD_USER(BASE_URL.url + "/adduser"),
     FETCH_MANAGERS(BASE_URL.getUrl()+"/users/role/manager"),
-    VALIDATE_MANAGER(BASE_URL.getUrl()+"/validateuser"),;
+    VALIDATE_MANAGER(BASE_URL.getUrl()+"/validateuser"),
+    FOODS(BASE_URL.getUrl()+"/foods");
 
     private String url;
 

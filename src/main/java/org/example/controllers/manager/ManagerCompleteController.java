@@ -15,7 +15,7 @@ import org.example.models.responses.LoginResponse;
 import org.example.models.user.TempUser;
 import org.example.models.user.User;
 import org.example.models.user.WorkerUser;
-import org.example.services.AddUserService;
+import org.example.services.admin.AddUserService;
 import org.example.services.LoginService;
 import org.example.services.SignUpService;
 
@@ -79,14 +79,13 @@ public class ManagerCompleteController implements SwitchSceneInterface {
             User newUser = new WorkerUser(username,pass,"MANAGER",phoneNo,branchCode,id);
             newUser.setMail(mail);
 
-            LoginResponse loginResponse = LoginService.login(newUser);
 
             LoginResponse response = SignUpService.signUp(newUser);
-            if (loginResponse.getStatusCode() == 200){
+            if (response.getStatusCode() == 201){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setHeaderText(null);
-                alert.setContentText(loginResponse.getMessage());
+                alert.setContentText(response.getMessage());
                 alert.showAndWait();
                 SceneController.switchScene(stage, SceneName.MANAGER_LOGIN);
             }
@@ -94,7 +93,7 @@ public class ManagerCompleteController implements SwitchSceneInterface {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText(null);
-                alert.setContentText(loginResponse.getMessage());
+                alert.setContentText(response.getMessage());
                 alert.showAndWait();
             }
 

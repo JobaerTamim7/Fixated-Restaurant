@@ -1,16 +1,22 @@
 package org.example.models.food;
 
-import javafx.beans.binding.BooleanExpression;
-import javafx.beans.property.StringProperty;
-import javafx.scene.image.Image;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FoodItem {
     private final String name;
     private final String category;
     private final double price;
     private final String image;
 
-    public FoodItem(String name, String category, double price, String image) {
+    @JsonCreator
+    public FoodItem(
+            @JsonProperty("name") String name,
+            @JsonProperty("category") String category,
+            @JsonProperty("price") double price,
+            @JsonProperty("image") String image) {
         this.name = name;
         this.category = category;
         this.price = price;
@@ -32,5 +38,4 @@ public class FoodItem {
     public String getImage() {
         return image;
     }
-
 }

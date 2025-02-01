@@ -22,7 +22,7 @@
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../images/admin.png" />
+                        <Image url="@../../images/admin.png" />
                     </image>
                 </ImageView>
                 <Label prefHeight="35.0" prefWidth="172.0" style="-fx-font-size: 24; -fx-font-weight: 700;" text="Admin Panel" textFill="WHITE">

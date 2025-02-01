@@ -2,6 +2,7 @@ package org.example.controllers.menu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,8 +15,9 @@ import org.example.controllers.scene.SceneController;
 import org.example.controllers.scene.SceneName;
 import org.example.controllers.scene.SwitchSceneInterface;
 import org.example.models.food.FoodItem;
-import org.example.services.CartService;
-import org.w3c.dom.events.Event;
+import org.example.services.customer.CartService;
+import org.example.services.customer.FoodMenuService;
+import io.github.palexdev.materialfx.controls.MFXPagination;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,41 +26,51 @@ public class MenuController implements SwitchSceneInterface {
 
     @FXML
     private GridPane menuGrid;
+
+    @FXML
+    private MFXPagination pagination;
+
     private final int COL = 3;
-
-    private final List<FoodItem> FoodItems = List.of(
-            new FoodItem("Burger","FastFood", 9.99, "burger.png"),
-            new FoodItem("Pizza", "FastFood",12.99, "pizza.png"),
-            new FoodItem("Fries", "FastFood",4.99, "fries.png"),
-            new FoodItem("Salad", "FastFood",8.99, "salad.png"),
-            new FoodItem("Pasta", "FastFood",11.99, "pasta.png"),
-            new FoodItem("Steak", "FastFood",19.99, "steak.png"),
-            new FoodItem("Soup", "FastFood",6.99, "soup.png"),
-            new FoodItem("Ice Cream", "FastFood",5.99, "icecream.png"),
-            new FoodItem("Soda", "FastFood",2.99, "soda.png")
-    );
-
+    private int page = 1;
+    private List<FoodItem> foodItems;
     private Stage stage;
 
     @Override
     public void initialize(Stage stage) {
-        try{
+        try {
             this.stage = stage;
-            populateMenuGrid();
-        }
-        catch(Exception e){
+            loadMenu();
+            setupPagination();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    private void loadMenu() {
+        foodItems = FoodMenuService.menu(page);
+        System.out.println(foodItems);
+        populateMenuGrid();
+    }
+
     private void populateMenuGrid() {
-        for(int i = 0; i < FoodItems.size(); i++) {
-            FoodItem item = FoodItems.get(i);
-            addItemCard(item, i);
+        menuGrid.getChildren().clear();
+        for (int i = 0; i < foodItems.size(); i++) {
+            addItemCard(foodItems.get(i), i);
         }
     }
+
+    private void setupPagination() {
+        pagination.setMaxPage(2);
+        pagination.setCurrentPage(1);
+
+        pagination.currentPageProperty().addListener((observable, oldValue, newValue) -> {
+            this.page = newValue.intValue();
+            loadMenu();
+        });
+    }
+
     @FXML
-    private void handleCartNavigation(Event event) {
+    private void handleCartNavigation(ActionEvent event) {
         try {
             SceneController.switchScene(stage, SceneName.CART);
         } catch (IOException e) {
@@ -67,15 +79,15 @@ public class MenuController implements SwitchSceneInterface {
     }
 
     @FXML
-    private void exit(){
+    private void exit() {
         System.exit(0);
     }
 
     private void addItemCard(FoodItem item, int index) {
         VBox card = new VBox(10);
-        card.getStyleClass().add("menu-card");
+        card.setAlignment(Pos.CENTER);
 
-        // Image
+
         ImageView image = new ImageView();
         try {
             image.setImage(new Image(
@@ -91,10 +103,8 @@ public class MenuController implements SwitchSceneInterface {
         image.setPreserveRatio(true);
 
         Label nameLabel = new Label(item.getName());
-        nameLabel.getStyleClass().add("item-name");
 
-        Label priceLabel = new Label("$"+ item.getPrice());
-        priceLabel.getStyleClass().add("item-price");
+        Label priceLabel = new Label("$" + item.getPrice());
 
         Button addButton = new Button("Add to Cart");
         addButton.setOnAction(e -> handleAddToCart(item));
@@ -118,13 +128,5 @@ public class MenuController implements SwitchSceneInterface {
         alert.setContentText(item.getName() + " added to cart!");
         alert.initOwner(stage);
         alert.showAndWait();
-    }
-
-    public void handleCartNavigation(ActionEvent actionEvent) {
-        try {
-            SceneController.switchScene(stage, SceneName.CART);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

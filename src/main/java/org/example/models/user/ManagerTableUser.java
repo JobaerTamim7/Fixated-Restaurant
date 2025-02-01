@@ -1,39 +1,32 @@
 package org.example.models.user;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TableUser {
+public class ManagerTableUser{
 
-    @JsonProperty("id")
     private int id;
-
-    @JsonProperty("name")
     private String name;
-
-    @JsonProperty("mail")
     private String mail;
-
-    @JsonProperty("role")
     private String role;
-
-    @JsonProperty("phone_number")
     private String phone_number;
-
-    @JsonProperty("worker_id")
     private String worker_id;
-
-    @JsonProperty("branch_code")
     private String branch_code;
 
-    public TableUser() {}
 
-    public TableUser(String user_name, String mail, String role, String phone_number, String workerID,String branch_code) {
+    @JsonCreator
+    public ManagerTableUser(@JsonProperty("name") String user_name,
+                            @JsonProperty("mail") String mail,
+                            @JsonProperty("role") String role,
+                            @JsonProperty("phone_number") String phone_number,
+                            @JsonProperty("worker_id") String worker_id,
+                            @JsonProperty("branch_code") String branch_code) {
         this.name = user_name;
         this.mail = mail;
         this.role = role;
         this.phone_number = phone_number;
-        this.worker_id = workerID;
+        this.worker_id = worker_id;
         this.branch_code = branch_code;
     }
 

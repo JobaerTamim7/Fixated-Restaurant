@@ -7,11 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.Instant;
 
 public class LoginResponse {
-    @JsonProperty("status_code")
     private int statusCode;
-    @JsonProperty("time_stamp")
     private Instant timeStamp;
-    @JsonProperty("message")
     private String message;
 
     public String getMessage() {

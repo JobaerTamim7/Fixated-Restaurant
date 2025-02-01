@@ -11,7 +11,7 @@ import org.example.models.responses.LoginResponse;
 import org.example.models.user.TempUser;
 import org.example.models.user.User;
 import org.example.models.user.UserMap;
-import org.example.services.AddUserService;
+import org.example.services.admin.AddUserService;
 
 import java.time.Instant;
 import java.time.ZoneId;
@@ -54,7 +54,6 @@ public class AddUserController implements SwitchSceneInterface {
             alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
-
     }
 
     @FXML

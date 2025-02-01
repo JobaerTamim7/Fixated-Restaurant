@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.geometry.Insets?>
@@ -19,16 +18,17 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.manager.ManagerLoginController">
+<AnchorPane prefHeight="700.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.admin.AdminLoginController">
     <children>
         <ImageView fitHeight="700.0" fitWidth="957.0" style="-fx-opacity: 0.07;">
             <image>
-                <Image url="@../images/manager.png" />
+                <Image url="@../../images/manager.png" />
             </image>
         </ImageView>
-        <AnchorPane layoutX="285.0" layoutY="22.0" prefHeight="74.0" prefWidth="379.0">
+        <Button fx:id="loginBtn" layoutX="381.0" layoutY="628.0" mnemonicParsing="false" onAction="#onClickLoginButton" prefHeight="46.0" prefWidth="183.0" styleClass="button-primary" stylesheets="@../../styles/Login.css" text="Login" />
+        <AnchorPane layoutX="276.0" layoutY="32.0" prefHeight="74.0" prefWidth="379.0">
             <children>
-                <Label alignment="CENTER" layoutX="21.0" layoutY="-14.0" prefHeight="75.0" prefWidth="381.0" styleClass="welcome-message" stylesheets="@../styles/Login.css" text="Manager Log In" textFill="#ab0000">
+                <Label alignment="CENTER" layoutX="5.0" layoutY="3.0" prefHeight="46.0" prefWidth="374.0" styleClass="welcome-message" stylesheets="@../../styles/Login.css" text="Executive Log in" textFill="#ab0000">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
@@ -42,7 +42,7 @@
                 </InnerShadow>
             </effect>
         </AnchorPane>
-        <VBox alignment="CENTER" layoutX="313.0" layoutY="80.0" prefHeight="505.0" prefWidth="374.0" style="-fx-opacity: 1;">
+        <VBox alignment="CENTER_LEFT" layoutX="278.0" layoutY="112.0" prefHeight="501.0" prefWidth="374.0" style="-fx-opacity: 1;">
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="31.0">
                     <children>
@@ -74,7 +74,7 @@
                                 </RadialGradient>
                             </fill>
                         </FontAwesomeIconView>
-                        <MFXTextField fx:id="userName" floatMode="BORDER" prefHeight="51.0" prefWidth="320.0" promptText="user name" styleClass="input" stylesheets="@../styles/Login.css" />
+                  <MFXTextField fx:id="userName" floatMode="BORDER" prefHeight="51.0" prefWidth="320.0" promptText="user name" styleClass="input" stylesheets="@../../styles/Login.css" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="34.0">
@@ -107,7 +107,7 @@
                                 </RadialGradient>
                             </fill>
                         </FontAwesomeIconView>
-                        <MFXPasswordField fx:id="password" floatMode="BORDER" prefHeight="49.0" prefWidth="318.0" promptText="password" styleClass="input" stylesheets="@../styles/Login.css" />
+                  <MFXPasswordField fx:id="password" floatMode="BORDER" prefHeight="49.0" prefWidth="318.0" promptText="password" styleClass="input" stylesheets="@../../styles/Login.css" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="28.0">
@@ -140,7 +140,7 @@
                                 </RadialGradient>
                             </fill>
                         </FontAwesomeIconView>
-                        <MFXTextField fx:id="phoneNo" floatMode="BORDER" prefHeight="51.0" prefWidth="320.0" promptText="phone number" styleClass="input" stylesheets="@../styles/Login.css" />
+                  <MFXTextField fx:id="phoneNo" floatMode="BORDER" prefHeight="51.0" prefWidth="320.0" promptText="phone number" styleClass="input" stylesheets="@../../styles/Login.css" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="17.0">
@@ -176,7 +176,7 @@
                                 </RadialGradient>
                             </fill>
                         </FontAwesomeIconView>
-                        <MFXTextField fx:id="wrokerID" floatMode="BORDER" prefHeight="51.0" prefWidth="320.0" promptText="Idendity number" styleClass="input" stylesheets="@../styles/Login.css" />
+                  <MFXTextField fx:id="wrokerID" floatMode="BORDER" prefHeight="51.0" prefWidth="320.0" promptText="Idendity number" styleClass="input" stylesheets="@../../styles/Login.css" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
@@ -209,7 +209,7 @@
                                 </RadialGradient>
                             </fill>
                         </FontAwesomeIconView>
-                        <MFXTextField fx:id="branchCode" floatMode="BORDER" prefHeight="51.0" prefWidth="320.0" promptText="branch code" styleClass="input" stylesheets="@../styles/Login.css" />
+                  <MFXTextField fx:id="branchCode" floatMode="BORDER" prefHeight="51.0" prefWidth="320.0" promptText="branch code" styleClass="input" stylesheets="@../../styles/Login.css" />
                     </children>
                 </HBox>
             </children>
@@ -217,11 +217,5 @@
                 <DropShadow />
             </effect>
         </VBox>
-        <MFXButton fx:id="complete" buttonType="RAISED" depthLevel="LEVEL4" layoutX="821.0" layoutY="628.0" onAction="#onCompleteClick" prefHeight="34.0" prefWidth="122.0" rippleColor="#b1afff" style="-fx-background-color: rgba(0,0,255,0.5); -fx-font-weight: 700; -fx-text-fill: rgba(255,255,255,.7);" text="Complete profile" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-        </MFXButton>
-        <Button fx:id="loginBtn" layoutX="409.0" layoutY="621.0" mnemonicParsing="false" onAction="#onClickLoginButton" prefHeight="46.0" prefWidth="183.0" styleClass="button-primary" stylesheets="@../styles/Login.css" text="Login" />
     </children>
 </AnchorPane>

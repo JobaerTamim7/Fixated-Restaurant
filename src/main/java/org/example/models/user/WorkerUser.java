@@ -1,6 +1,9 @@
 package org.example.models.user;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 
@@ -9,46 +12,45 @@ import java.util.Map;
 
 public class WorkerUser extends User {
 
-    private String phoneNumber;
-    private String branchCode;
-    private String workerID;
+    private String phone_number;
+    private String branch_code;
+    private String worker_id;
     private final String type = "worker";
 
-    public WorkerUser(String user_name, String password, String role, String phoneNumber, String branchCode, String workerID) {
+    @JsonCreator
+    public WorkerUser(String user_name, String password, String role,
+            @JsonProperty("phone_number") String phoneNumber,
+            @JsonProperty("branch_code") String branchCode,
+            @JsonProperty("worker_id") String workerID)
+    {
         super(user_name, password, role);
-        this.phoneNumber = phoneNumber;
-        this.branchCode = branchCode;
-        this.workerID = workerID;
+        this.phone_number = phoneNumber;
+        this.branch_code = branchCode;
+        this.worker_id = workerID;
     }
 
-    @JsonProperty("phone_number")
     public String getPhoneNumber() {
-        return phoneNumber;
+        return phone_number;
     }
 
-    @JsonProperty("phone_number")
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.phone_number = phoneNumber;
     }
 
-    @JsonProperty("worker_id")
     public String getWorkerID() {
-        return workerID;
+        return worker_id;
     }
 
-    @JsonProperty("worker_id")
     public void setWorkerID(String workerID) {
-        this.workerID = workerID;
+        this.worker_id = workerID;
     }
 
-    @JsonProperty("branch_code")
     public String getBranchCode() {
-        return branchCode;
+        return branch_code;
     }
 
-    @JsonProperty("branch_code")
     public void setBranchCode(String branchCode) {
-        this.branchCode = branchCode;
+        this.branch_code = branchCode;
     }
 
     @Override
@@ -59,9 +61,9 @@ public class WorkerUser extends User {
         map.put("password",this.getPassword());
         map.put("role",this.getRole());
         map.put("mail",this.getMail());
-        map.put("phone_no",this.phoneNumber);
-        map.put("branch_code",this.branchCode);
-        map.put("worker_id",this.workerID);
+        map.put("phone_number",this.phone_number);
+        map.put("branch_code",this.branch_code);
+        map.put("worker_id",this.worker_id);
         return map;
     }
 

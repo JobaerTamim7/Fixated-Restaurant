@@ -32,23 +32,19 @@ public class LoginController implements SwitchSceneInterface {
 
     @FXML
     private MFXTextField userNameField;
-
     @FXML
     private MFXPasswordField passwordField;
-
     @FXML
     private Label alertLabel;
-
     @FXML
     private AnchorPane rightSidePane;
-
     @FXML
     private VBox leftSideBox;
 
     private Stage stage;
-
     private ParallelTransition enterTransition;
     private ParallelTransition leaveTransition;
+
 
     private ParallelTransition createEnterTransition() {
         TranslateTransition leftTransition = AnimationFactory.createTranslateTransition(
@@ -59,16 +55,15 @@ public class LoginController implements SwitchSceneInterface {
                 new AnimationInfo(rightSidePane, -rightSidePane.getHeight(), 0),
                 false
         );
-
         return new ParallelTransition(leftTransition, rightTransition);
     }
+
 
     private ParallelTransition createLeaveTransition() {
         TranslateTransition leftTransition = AnimationFactory.createTranslateTransition(
                 new AnimationInfo(leftSideBox, 0, -leftSideBox.getWidth()),
                 true
         );
-
         TranslateTransition rightTransition = AnimationFactory.createTranslateTransition(
                 new AnimationInfo(rightSidePane, 0, -rightSidePane.getHeight()),
                 false

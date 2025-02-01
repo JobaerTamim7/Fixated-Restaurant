@@ -1,4 +1,4 @@
-package org.example.services;
+package org.example.services.admin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,7 +7,7 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.Endpoint;
-import org.example.models.user.TableUser;
+import org.example.models.user.ManagerTableUser;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -17,9 +17,9 @@ import java.util.List;
 
 public class ManagerTableService {
 
-    public static void fetchData(MFXTableView<TableUser> table){
+    public static void fetchData(MFXTableView<ManagerTableUser> table){
         String url = Endpoint.FETCH_MANAGERS.getUrl();
-        ObservableList<TableUser> users = FXCollections.observableArrayList();
+        ObservableList<ManagerTableUser> users = FXCollections.observableArrayList();
 
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -34,8 +34,8 @@ public class ManagerTableService {
                         System.out.println(response);
                         ObjectMapper mapper = new ObjectMapper();
                         try {
-                            List<TableUser> userList = mapper.readValue(response,
-                                    mapper.getTypeFactory().constructCollectionType(List.class, TableUser.class));
+                            List<ManagerTableUser> userList = mapper.readValue(response,
+                                    mapper.getTypeFactory().constructCollectionType(List.class, ManagerTableUser.class));
                             System.out.println(userList.size());
                             Platform.runLater(()->{
                                table.getItems().setAll(userList);

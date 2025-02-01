@@ -22,7 +22,7 @@
             <children>
                 <ImageView fitHeight="802.0" fitWidth="499.0">
                     <image>
-                        <Image url="@../images/tasty-serbian-food-arrangement-flat-lay.png" />
+                        <Image url="@../../images/tasty-serbian-food-arrangement-flat-lay.png" />
                     </image>
                 </ImageView>
             </children>
@@ -31,10 +31,10 @@
             <children>
                 <ImageView fitHeight="181.0" fitWidth="210.0" layoutX="176.0" layoutY="14.0">
                     <image>
-                        <Image url="@../images/restuarant-logo.png" />
+                        <Image url="@../../images/restuarant-logo.png" />
                     </image>
                 </ImageView>
-                <Label layoutX="111.0" layoutY="216.0" prefHeight="78.0" prefWidth="341.0" styleClass="welcome-message" stylesheets="@../styles/Login.css" text="Welcome Back Foodie !">
+                <Label layoutX="111.0" layoutY="216.0" prefHeight="78.0" prefWidth="341.0" styleClass="welcome-message" stylesheets="@../../styles/Login.css" text="Welcome Back Foodie !">
                     <font>
                         <Font name="System Bold Italic" size="20.0" />
                     </font>
@@ -71,7 +71,7 @@
                                         </RadialGradient>
                                     </fill>
                                 </FontAwesomeIconView>
-                        <MFXTextField fx:id="userNameField" alignment="CENTER" floatMode="BORDER" prefHeight="40.0" prefWidth="310.0" promptText="user name" styleClass="input" stylesheets="@../styles/Login.css">
+                        <MFXTextField fx:id="userNameField" alignment="CENTER" floatMode="BORDER" prefHeight="40.0" prefWidth="310.0" promptText="user name" styleClass="input" stylesheets="@../../styles/Login.css">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -108,12 +108,12 @@
                                         </RadialGradient>
                                     </fill>
                                 </FontAwesomeIconView>
-                        <MFXPasswordField fx:id="passwordField" alignment="CENTER" borderGap="5.0" floatMode="BORDER" prefHeight="40.0" prefWidth="310.0" promptText="password" styleClass="input" stylesheets="@../styles/Login.css" />
+                        <MFXPasswordField fx:id="passwordField" alignment="CENTER" borderGap="5.0" floatMode="BORDER" prefHeight="40.0" prefWidth="310.0" promptText="password" styleClass="input" stylesheets="@../../styles/Login.css" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-                <Button fx:id="loginButton" layoutX="220.0" layoutY="528.0" mnemonicParsing="false" onAction="#onClickLoginButton" prefHeight="48.0" prefWidth="130.0" styleClass="button-primary" stylesheets="@../styles/Login.css" text="Login" />
+                <Button fx:id="loginButton" layoutX="220.0" layoutY="528.0" mnemonicParsing="false" onAction="#onClickLoginButton" prefHeight="48.0" prefWidth="130.0" styleClass="button-primary" stylesheets="@../../styles/Login.css" text="Login" />
                 <Label fx:id="alertLabel" alignment="CENTER" layoutX="82.0" layoutY="631.0" prefHeight="34.0" prefWidth="405.0" style="-fx-font-weight: 800;" textFill="RED">
                <font>
                   <Font size="14.0" />

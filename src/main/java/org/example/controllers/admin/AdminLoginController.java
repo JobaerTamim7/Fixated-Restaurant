@@ -49,7 +49,6 @@ public class AdminLoginController implements SwitchSceneInterface {
 
         boolean isEmpty = user_name.isEmpty() || pass.isEmpty() || phone.isEmpty() || id.isEmpty() || branch.isEmpty();
 
-        SceneController.switchScene(stage, SceneName.ADMIN_PANEL);
         try{
             if (isEmpty){
                 throw new Exception("All the fields are required");
@@ -75,13 +74,13 @@ public class AdminLoginController implements SwitchSceneInterface {
 
     }
 
-    private static Alert getAlert(LoginResponse response) {
+    private Alert getAlert(LoginResponse response) throws IOException {
         Alert alert;
         if (response.getStatusCode() == 200) {
             alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Login Successful");
             alert.setHeaderText("Login Successful");
-            //                SceneController.switchScene(stage, SceneName.DASHBOARD);
+            SceneController.switchScene(this.stage, SceneName.ADMIN_PANEL);
         }
         else {
             alert = new Alert(Alert.AlertType.ERROR);

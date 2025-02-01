@@ -1,4 +1,4 @@
-package org.example.services;
+package org.example.services.customer;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,7 +11,7 @@ public class CartService {
 
     private CartService() {}
 
-    public static synchronized CartService getInstance() {
+    public static CartService getInstance() {
         if (instance == null) {
             instance = new CartService();
         }

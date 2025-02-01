@@ -1,9 +1,11 @@
 package org.example.services;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.Endpoint;
 import org.example.models.responses.LoginResponse;
 import org.example.models.user.User;
+import org.example.utils.Utility;
 
 import java.io.IOException;
 import java.net.ConnectException;
@@ -15,26 +17,9 @@ import java.util.Map;
 
 public class LoginService {
 
-    public static LoginResponse login(User user) throws IOException, InterruptedException {
-        String url = Endpoint.LOGIN_URL.getUrl();
+    public static LoginResponse login(User user) throws JsonProcessingException {
 
-        Map<String, Object> payLoadMap = user.dataToMap();
-        ObjectMapper mapper = CustomObjectMapper.createCustomMapper();
-        String payLoad = mapper.writeValueAsString(payLoadMap);
-
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .header("Content-Type","application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(payLoad))
-                .build();
-        try {
-            HttpResponse<String> serverResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
-            return mapper.readValue(serverResponse.body(), LoginResponse.class);
-        }
-        catch (ConnectException e) {
-            throw new RuntimeException("Server not found");
-        }
+        return Utility.getResponseOfPost(Endpoint.LOGIN_URL,user.dataToMap());
     }
 
 }
